@@ -1,14 +1,29 @@
-import React, { Component } from 'react';
-import SignUp from './SignUp';
-import Login from './Login';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
-export default class NavBar extends Component {
-  render() {
-    return (
-      <div>
-      <SignUp />
-      <Login />
-      </div>
-    );
-  }
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
+  },
+});
+
+function FlatButtons(props) {
+  const { classes } = props;
+  return (
+    <div>
+      <Button className={classes.button}>Sign Up</Button>
+      <Button className={classes.button}>Login</Button>
+    </div>
+  );
 }
+
+FlatButtons.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(FlatButtons);

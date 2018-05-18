@@ -1,28 +1,30 @@
-.App {
-  text-align: center;
+html {
+  margin: 0;
+  background: 
+    linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url('./wine-stain.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+ 
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.header {
+  font-size: 40px;
+  background-color: rgb(201, 63, 86);
+  padding: 5%;
   color: white;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5%;
 }
 
-.App-title {
-  font-size: 1.5em;
+.logo {
+  height: 15%;
+  width: 15%;
+  padding-right: 5%;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
