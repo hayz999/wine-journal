@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../Form.css'
 
 export default class Form extends Component {
   constructor(props) {
@@ -13,6 +12,7 @@ export default class Form extends Component {
       notes: '',
       rating: ''
     }
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange = (event) => {

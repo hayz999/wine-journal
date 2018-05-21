@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Form.css'
+
 
 class Login extends Component {
   
@@ -21,6 +21,7 @@ class Login extends Component {
   
   render() {
     return (
+      <div className="signUp-and-login" >
       <div className="form-style-6">
         <h1>Login</h1>
         <form>
@@ -34,6 +35,7 @@ class Login extends Component {
             <button className="btn" type="submit" > Login </button>
           </section>
         </form>
+      </div>
       </div>
     );
   }

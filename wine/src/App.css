@@ -14,7 +14,7 @@ html {
 
 .header {
   font-size: 40px;
-  background-color: rgb(201, 63, 86);
+  background-color: rgba(201, 63, 86, 0.76);
   padding: 5%;
   color: white;
   display: flex;
@@ -28,3 +28,25 @@ html {
   padding-right: 5%;
 }
 
+#journals {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#about {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
+}
+
+.signUp-and-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../Form.css'
 
 class SignUp extends Component {
   
@@ -23,6 +22,7 @@ class SignUp extends Component {
 
   render() {
     return (
+      <div className="signUp-and-login" >
       <div className="form-style-6">
         <h1>Sign Up</h1>
         <form>
@@ -42,6 +42,7 @@ class SignUp extends Component {
             <button type="submit" > Submit </button> 
             </section>
         </form>
+      </div>
       </div>
     );
   }
