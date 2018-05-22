@@ -48,90 +48,96 @@ export default class Form extends Component {
       rating: ''
     })
   }
+
   handleDelete = (event) => {
     event.preventDefault();
-    const body = JSON.stringify(this.state)
-    fetch(url, {
+    let deleteUrl = url + event.target.name
+    fetch(deleteUrl, {
       method: "DELETE",
-      headers: new Headers({ "content-type": "application/json" }),
-      body: body
+      headers: new Headers({ "content-type": "application/json" })
     })
       .then(response => response.json())
       .then(entry => {
         console.log(entry);
       })
+      .then(this.deleteJournal(event.target.name))
   }
+  
+  
   
   render() {
     return (
-      <div id="form-container" >
-      <div className="form-style-6">
-      <h1>New Journal Submission</h1>
-          <form>
-        <section className="form" >
-          <section >
-            <input name="name" 
-                   type="text" 
-                   value={this.state.name} 
-                   placeholder="Name" 
-                   onChange={this.handleChange} />
+      <div>
+        <div id="form-container" >
+        <div className="form-style-6">
+        <h1>New Journal Submission</h1>
+            <form>
+          <section className="form" >
+            <section >
+              <input name="name" 
+                    type="text" 
+                    value={this.state.name} 
+                    placeholder="Name" 
+                    onChange={this.handleChange} />
+            </section>
+            <section >
+              <input name="vintage" 
+                    type="text" 
+                    value={this.state.vintage} 
+                    placeholder="Vintage" 
+                    onChange={this.handleChange} />
+            </section>
+            <section >
+              <input name="varietal" 
+                    type="text" 
+                    value={this.state.varietal} 
+                    placeholder="Varietal" 
+                    onChange={this.handleChange} />
+            </section>
+            <section >
+              <input name="winery" 
+                    type="text" 
+                    value={this.state.winery} 
+                    placeholder="Winery" 
+                    onChange={this.handleChange} />
+            </section>
+            <section >
+              <input name="location" 
+                    type="text" 
+                    value={this.state.location} 
+                    placeholder="Location" 
+                    onChange={this.handleChange} />
+            </section>
+            <section >
+              <textarea name="notes" 
+                        type="text" 
+                        value={this.state.notes} 
+                        placeholder="Tasting Notes" 
+                        onChange={this.handleChange} />
+            <section >
+              <input name="rating" 
+                    type="text" 
+                    value={this.state.rating} 
+                    placeholder="Rating" 
+                    onChange={this.handleChange} />
+            </section>
+            </section>
           </section>
-          <section >
-            <input name="vintage" 
-                   type="text" 
-                   value={this.state.vintage} 
-                   placeholder="Vintage" 
-                   onChange={this.handleChange} />
-          </section>
-          <section >
-            <input name="varietal" 
-                   type="text" 
-                   value={this.state.varietal} 
-                   placeholder="Varietal" 
-                   onChange={this.handleChange} />
-          </section>
-          <section >
-            <input name="winery" 
-                   type="text" 
-                   value={this.state.winery} 
-                   placeholder="Winery" 
-                   onChange={this.handleChange} />
-          </section>
-          <section >
-            <input name="location" 
-                   type="text" 
-                   value={this.state.location} 
-                   placeholder="Location" 
-                   onChange={this.handleChange} />
-          </section>
-          <section >
-            <textarea name="notes" 
-                      type="text" 
-                      value={this.state.notes} 
-                      placeholder="Tasting Notes" 
-                      onChange={this.handleChange} />
-          <section >
-            <input name="rating" 
-                   type="text" 
-                   value={this.state.rating} 
-                   placeholder="Rating" 
-                   onChange={this.handleChange} />
-          </section>
-          </section>
-        </section>
-            <button onClick={this.handleSubmit} 
-                    type="submit" > Submit </button> 
-      </form>
-      </div>
-      <Preview name={this.state.name}
-               vintage={this.state.vintage}
-               varietal={this.state.varietal}
-               winery={this.state.winery}
-               location={this.state.location}
-               notes={this.state.notes} 
-               rating={this.state.rating} />
-      <Journal data={this.props.data} 
-               handleDelete={this.handleDelete}/>
+              <button onClick={this.handleSubmit} 
+                      type="submit" > Submit </button> 
+        </form>
+        </div>
+          <Preview name={this.state.name}
+                   vintage={this.state.vintage}
+                   varietal={this.state.varietal}
+                   winery={this.state.winery}
+                   location={this.state.location}
+                   notes={this.state.notes}
+                   rating={this.state.rating} />
+        </div>
+        
+        <Journal data={this.props.data}
+                 handleDelete={this.handleDelete} />
       </div>
     );
   }

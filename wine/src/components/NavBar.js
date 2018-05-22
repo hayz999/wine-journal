@@ -18,6 +18,7 @@ function FlatButtons(props) {
     <div>
       <Button className={classes.button}>Sign Up</Button>
       <Button className={classes.button}>Login</Button>
+      <Button className={classes.button}>Home</Button>
     </div>
   );
 }

@@ -15,7 +15,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      isHidden: true
     }
   }
   
@@ -27,6 +28,17 @@ class App extends Component {
       ) 
   }
 
+  deleteJournal = (id) => {
+    const index = this.state.data.findIndex((wine) => {
+      return wine.id === id
+    })
+    const newData = this.state.data
+    newData.splice(index)
+    this.setState({
+      data: newData
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -35,7 +47,8 @@ class App extends Component {
         <SignUp />
         <Login />
         <About />
-        <Form data={this.state.data} />
+        <Form data={this.state.data}
+              deleteJournal={this.deleteJournal} />
         <Footer />
       </div>
     );
