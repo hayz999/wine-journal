@@ -36,9 +36,9 @@ export default class Form extends Component {
     })
     .then(response => response.json())
     .then(entry =>	{
-      console.log(entry);
+      this.props.updateData()
     })
-    this.setState({
+    .then(this.setState({
       name: '',
       vintage: '',
       varietal: '',
@@ -47,6 +47,7 @@ export default class Form extends Component {
       notes: '',
       rating: ''
     })
+    )
   }
 
   handleDelete = (event) => {
@@ -58,9 +59,8 @@ export default class Form extends Component {
     })
       .then(response => response.json())
       .then(entry => {
-        console.log(entry);
+        this.props.updateData()
       })
-      .then(this.deleteJournal(event.target.name))
   }
   
   

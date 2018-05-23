@@ -21,7 +21,7 @@ class Login extends Component {
   
   render() {
     return (
-      <div className="signUp-and-login" >
+      <div className={this.props.removeHidden()} >
       <div className="form-style-6">
         <h1>Login</h1>
         <form>

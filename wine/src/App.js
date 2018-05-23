@@ -28,27 +28,38 @@ class App extends Component {
       ) 
   }
 
-  deleteJournal = (id) => {
-    const index = this.state.data.findIndex((wine) => {
-      return wine.id === id
-    })
-    const newData = this.state.data
-    newData.splice(index)
+  updateData = () => {
+    fetch(url)
+      .then(response => response.json())
+      .then(wines =>
+        this.setState({ data: wines.wines })
+      ) 
+  }
+
+  removeHidden = () => {
+    if (this.state.isHidden) {
+      return "hidden"
+    } else {
+      return "signUp-and-login"
+    }
+  }
+
+  toggleHidden = () => {
     this.setState({
-      data: newData
+      isHidden: !this.state.isHidden
     })
   }
 
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <NavBar toggleHidden={this.toggleHidden} />
         <Header />
-        <SignUp />
-        <Login />
+        <SignUp removeHidden={this.removeHidden} />
+        <Login removeHidden={this.removeHidden} />
         <About />
         <Form data={this.state.data}
-              deleteJournal={this.deleteJournal} />
+              updateDate={this.updateData} />
         <Footer />
       </div>
     );
