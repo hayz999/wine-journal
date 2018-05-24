@@ -20,7 +20,7 @@ const Journal = (props) => {
 
   return (
     <div>
-      <h1 className="" >Journals</h1>
+      <h1 className="journal-title" >Journals</h1>
       <div id="journals" >
         {journals}
       </div>

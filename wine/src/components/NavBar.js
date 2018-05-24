@@ -16,9 +16,9 @@ function FlatButtons(props) {
   const { classes } = props;
   return (
     <div>
-      <Button className={classes.button} onClick={props.toggleHidden} >Sign Up</Button>
-      <Button className={classes.button} onClick={props.toggleHidden} >Login</Button>
-      <Button className={classes.button} onClick={props.toggleHidden} >Home</Button>
+      <Button className={classes.button} onClick={props.home}>Home</Button>
+      <Button className={classes.button} onClick={props.form}>New Entry</Button>
+      
     </div>
   );
 }

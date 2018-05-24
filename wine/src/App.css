@@ -9,13 +9,13 @@ html {
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
- 
+  height: 100%;
 }
 
 .header {
   font-size: 40px;
   background-color: rgba(201, 63, 86, 0.76);
-  padding: 5%;
+  padding: 2%;
   color: white;
   display: flex;
   flex-direction: row;
@@ -51,6 +51,23 @@ html {
   align-items: center;
 }
 
-.hidden {
-  display: none;
+.journal-title {
+  text-align: center;
+  font-size: 60px;
+}
+
+
+#main-wrapper {
+    box-sizing: border-box;
+    min-height: 100vh;
+    padding: 0 0 100px;
+    position: relative;
+}
+
+footer {
+    bottom: 0;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    width: 100%;
 }

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import NavBar from './components/NavBar';
 import Form from './components/Form';
 import Header from './components/Header';
-import SignUp from './components/SignUp';
-import Login from './components/Login';
 import About from './components/About';
 import Footer from './components/Footer';
 import './App.css';
@@ -16,7 +14,8 @@ class App extends Component {
     super(props)
     this.state = {
       data: [],
-      isHidden: true
+      showForm: false,
+      showHome: true
     }
   }
   
@@ -28,7 +27,7 @@ class App extends Component {
       ) 
   }
 
-  updateData = () => {
+  componentDidUpdate() {
     fetch(url)
       .then(response => response.json())
       .then(wines =>
@@ -36,30 +35,31 @@ class App extends Component {
       ) 
   }
 
-  removeHidden = () => {
-    if (this.state.isHidden) {
-      return "hidden"
-    } else {
-      return "signUp-and-login"
-    }
+  form = () => {
+    this.setState({
+      showForm: true,
+      showHome: false
+    })
   }
 
-  toggleHidden = () => {
+  home = () => {
     this.setState({
-      isHidden: !this.state.isHidden
+      showForm: false,
+      showHome: true
     })
   }
 
   render() {
+    const showForm = this.state.showForm
+    const showHome = this.state.showHome
+
     return (
-      <div className="App">
-        <NavBar toggleHidden={this.toggleHidden} />
+      <div id="main-wrapper" className="App">
+        <NavBar  form={this.form}
+                 home={this.home} />
         <Header />
-        <SignUp removeHidden={this.removeHidden} />
-        <Login removeHidden={this.removeHidden} />
-        <About />
-        <Form data={this.state.data}
-              updateDate={this.updateData} />
+        {showHome ? <About /> : <span></span> }
+        {showForm ? <Form data={this.state.data} /> : <span></span> } 
         <Footer />
       </div>
     );

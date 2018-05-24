@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Journal from './Journal';
 import Preview from './Preview';
 
+
 const url = 'https://wine-journal-api.herokuapp.com/wines/'
 
 export default class Form extends Component {
@@ -36,7 +37,8 @@ export default class Form extends Component {
     })
     .then(response => response.json())
     .then(entry =>	{
-      this.props.updateData()
+      console.log(entry);
+      
     })
     .then(this.setState({
       name: '',
@@ -59,7 +61,8 @@ export default class Form extends Component {
     })
       .then(response => response.json())
       .then(entry => {
-        this.props.updateData()
+        console.log(entry);
+        
       })
   }
   
