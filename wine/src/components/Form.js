@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Journal from './Journal';
 import Preview from './Preview';
 
-
 const url = 'https://wine-journal-api.herokuapp.com/wines/'
 
 export default class Form extends Component {
@@ -16,6 +15,7 @@ export default class Form extends Component {
       location: '',
       notes: '',
       rating: ''
+      // showJournal: false
     }
   }
 
@@ -26,6 +26,12 @@ export default class Form extends Component {
       [key]: value
     })
   }
+
+  // toggleJournal = () => {
+  //   this.setState({
+  //     showJournal: !this.state.showJournal
+  //   })
+  // }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -62,13 +68,14 @@ export default class Form extends Component {
       .then(response => response.json())
       .then(entry => {
         console.log(entry);
-        
       })
   }
   
   
   
   render() {
+    const showJournal = this.state.showJournal
+
     return (
       <div>
         <div id="form-container" >
@@ -138,7 +145,11 @@ export default class Form extends Component {
                    notes={this.state.notes}
                    rating={this.state.rating} />
         </div>
-        
+        <div className="journal-button">
+        {/* <button onClick={this.toggleJournal}>View Journal</button> */}
+        </div>
+        {/* {showJournal ? <Journal data={this.props.data}
+                 handleDelete={this.handleDelete} /> : <span></span> } */}
         <Journal data={this.props.data}
                  handleDelete={this.handleDelete} />
       </div>

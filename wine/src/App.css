@@ -71,3 +71,15 @@ footer {
     position: absolute;
     width: 100%;
 }
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.journal-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

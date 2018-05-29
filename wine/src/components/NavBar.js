@@ -15,10 +15,10 @@ const styles = theme => ({
 function FlatButtons(props) {
   const { classes } = props;
   return (
-    <div>
+    <div className="nav-bar" >
       <Button className={classes.button} onClick={props.home}>Home</Button>
-      <Button className={classes.button} onClick={props.form}>New Entry</Button>
-      
+      <Button className={classes.button} onClick={props.form}>Journal</Button>
+      <Button className={classes.button} onClick={props.form}>Raitings</Button>
     </div>
   );
 }

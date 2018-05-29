@@ -13,6 +13,7 @@ const Journal = (props) => {
         <h3>Tasting Notes:</h3>
         <span>{wine.notes}</span>
         <h3>Rating: <span>{wine.rating}</span></h3>
+        <button>Pairings</button>
         <button name={wine.id} onClick={props.handleDelete} type="delete" >Delete</button>
       </div>
     )
