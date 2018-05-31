@@ -17,8 +17,9 @@ function FlatButtons(props) {
   return (
     <div className="nav-bar" >
       <Button className={classes.button} onClick={props.home}>Home</Button>
-      <Button className={classes.button} onClick={props.form}>Journal</Button>
-      <Button className={classes.button} onClick={props.form}>Raitings</Button>
+      <Button className={classes.button} onClick={props.form}>New Submission</Button>
+      <Button className={classes.button} onClick={props.journal}>Journal</Button>
+      {/* <Button className={classes.button} }>Raitings </Button> */}
     </div>
   );
 }

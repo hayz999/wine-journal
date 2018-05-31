@@ -78,8 +78,8 @@ footer {
   justify-content: flex-end;
 }
 
-.journal-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.delete-button {
+  border: none;
+  padding: 4px;
+  align-self: flex-end;
 }
