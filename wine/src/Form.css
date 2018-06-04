@@ -95,11 +95,6 @@ span {
 
 button {
     background: #ed2859;
-  /* background-image: -webkit-linear-gradient(top, #ed2859, #b82b32);
-  background-image: -moz-linear-gradient(top, #ed2859, #b82b32);
-  background-image: -ms-linear-gradient(top, #ed2859, #b82b32);
-  background-image: -o-linear-gradient(top, #ed2859, #b82b32);
-  background-image: linear-gradient(to bottom, #ed2859, #b82b32); */
   font-family: Arial;
   color: black;
   font-size: 14px;

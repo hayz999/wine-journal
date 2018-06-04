@@ -39,10 +39,8 @@ class App extends Component {
       ) 
   }
 
-
   handleDelete = (event) => {
     event.preventDefault();
-    
     let deleteUrl = url + event.target.name
     fetch(deleteUrl, {
       method: "DELETE",

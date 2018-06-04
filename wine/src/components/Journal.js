@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import FoodPairings from './FoodPairings';
-import PairingForm from './PairingForm';
 
 const pairingsURL = 'https://wine-journal-api.herokuapp.com/pairings'
 
@@ -87,13 +86,12 @@ export default class Journal extends Component {
           <span>{wine.notes}</span>
           <h3>Rating: <span>{wine.rating}</span></h3>
         </div>
-          <div className="journal-buttons">
-            <button name={wine.id} onClick= {this.pairings} >Pairings</button>
-            <button name={wine.id}>Add Pairing</button>
-            <div>
-              <button  name={wine.id} onClick={this.props.handleDelete} type="delete" >Delete</button>
-            </div>
+        <div className="journal-buttons">
+          <button name={wine.id} onClick= {this.pairings} >Pairings</button>
+          <div>
+            <button  name={wine.id} onClick={this.props.handleDelete} type="delete" >Delete</button>
           </div>
+        </div>
         </div>
       )
     })
@@ -105,9 +103,6 @@ export default class Journal extends Component {
           <div id="journals" >{journals}</div> : 
           <FoodPairings pairings={this.pairings}
                         currentPairings={this.state.currentPairings}/> }
-      <PairingForm data={this.state.data}
-                    handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit}/>
       
     </div> 
   );

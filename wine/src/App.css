@@ -85,3 +85,18 @@ footer {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+  max-width: 100px;
+}
+
+.pairing-page {
+   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
