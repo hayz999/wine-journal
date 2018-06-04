@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PairingForm = () => {
+const PairingForm = (props) => {
   return (
     <div>
       <div id="form-container" >
@@ -11,16 +11,22 @@ const PairingForm = () => {
               <section >
                 <input name="recipeName"
                   type="text"
+                  value={props.recipeName}
+                  onChange={this.handleChange}
                   placeholder="Recipe Name"/>
               </section>
               <section >
                 <input name="link"
                   type="text"
+                  value={props.link}
+                  onChange={this.handleChange}
                   placeholder="Link" />
               </section>
               <section >
                 <input name="description"
                   type="text"
+                  value={props.description}
+                  onChange={this.handleChange}
                   placeholder="Description of pairing" />
               </section>
               </section>

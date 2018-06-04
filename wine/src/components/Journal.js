@@ -10,7 +10,10 @@ export default class Journal extends Component {
     this.state = {
       showPairings: true,
       pairingsData: [],
-      currentPairings: []
+      currentPairings: [],
+      recipeName: '',
+      link: '',
+      description: ''
     }
   }
 
@@ -23,6 +26,38 @@ export default class Journal extends Component {
       })
       
     })
+  }
+
+  handleChange = (event) => {
+    const value = event.target.value
+    const key = event.target.name
+    this.setState({
+      [key]: value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const body = JSON.stringify({
+      recipeName: this.state.recipeName,
+      link: this.state.link,
+      description: this.state.description
+    })
+    fetch(pairingsURL, {
+        method: "POST",
+        headers: new Headers ({"content-type": "application/json"}),
+        body: body
+      })
+      .then(response => response.json())
+      .then(entry =>	{
+        console.log(entry);
+        
+      })
+      .then(this.setState({
+        recipeName: '',
+        link: '',
+        description: ''
+      }))
   }
 
   pairings = (event) => {
@@ -40,7 +75,8 @@ export default class Journal extends Component {
     
     const journals = this.props.data.map(wine =>{
       return (
-        <div id="form-preview" className="form-style-6" key={wine.id} >
+        <div id="form-preview" className="form-style-6 journals" key={wine.id} >
+        <div>
           <h1>{wine.name}</h1>
           <h3>Name: <span>{wine.name}</span></h3>
           <h3>Vintage: <span>{wine.vintage}</span> </h3>
@@ -50,10 +86,13 @@ export default class Journal extends Component {
           <h3>Tasting Notes:</h3>
           <span>{wine.notes}</span>
           <h3>Rating: <span>{wine.rating}</span></h3>
-          <button name={wine.id} onClick= {this.pairings} >Pairings</button>
-          <button>Add Pairing</button>
-          <div>
-          <button className="delete-button" name={wine.id} onClick={this.handleDelete} type="delete" >Delete</button>
+        </div>
+          <div className="journal-buttons">
+            <button name={wine.id} onClick= {this.pairings} >Pairings</button>
+            <button name={wine.id}>Add Pairing</button>
+            <div>
+              <button  name={wine.id} onClick={this.props.handleDelete} type="delete" >Delete</button>
+            </div>
           </div>
         </div>
       )
@@ -66,7 +105,9 @@ export default class Journal extends Component {
           <div id="journals" >{journals}</div> : 
           <FoodPairings pairings={this.pairings}
                         currentPairings={this.state.currentPairings}/> }
-      <PairingForm />
+      <PairingForm data={this.state.data}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}/>
       
     </div> 
   );

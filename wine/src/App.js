@@ -18,7 +18,8 @@ class App extends Component {
       data: [],
       showForm: false,
       showHome: true,
-      showJournal: false
+      showJournal: false,
+      showRatings: false
     }
   }
   
@@ -27,7 +28,7 @@ class App extends Component {
       .then(response => response.json())
       .then(wines =>
         this.setState({data: wines.wines})
-      ) 
+      )
   }
 
   componentDidUpdate() {
@@ -38,8 +39,10 @@ class App extends Component {
       ) 
   }
 
+
   handleDelete = (event) => {
     event.preventDefault();
+    
     let deleteUrl = url + event.target.name
     fetch(deleteUrl, {
       method: "DELETE",
@@ -55,7 +58,8 @@ class App extends Component {
     this.setState({
       showForm: true,
       showHome: false,
-      showJournal: false
+      showJournal: false,
+      showRatings: false
     })
   }
 
@@ -63,7 +67,8 @@ class App extends Component {
     this.setState({
       showForm: false,
       showHome: false,
-      showJournal: true
+      showJournal: true,
+      showRatings: false
     })
   }
 
@@ -71,7 +76,17 @@ class App extends Component {
     this.setState({
       showForm: false,
       showHome: true,
-      showJournal: false
+      showJournal: false,
+      showRatings: false
+    })
+  }
+
+  ratings = () => {
+    this.setState({
+      showForm: false,
+      showHome: false,
+      showJournal: false,
+      showRatings: true
     })
   }
 
@@ -79,18 +94,19 @@ class App extends Component {
     const showForm = this.state.showForm
     const showHome = this.state.showHome
     const showJournal = this.state.showJournal
+    const showRatings = this.state.showRatings
 
     return (
       <div id="main-wrapper" className="App">
         <NavBar  form={this.form}
                  home={this.home}
-                 journal={this.journal} />
+                 journal={this.journal}
+                 ratings={this.ratings} />
         <Header />
         {showHome ? <About /> : <span></span> }
         {showForm ? <Form data={this.state.data} /> : <span></span> } 
-        {showJournal ? <Journal data={this.state.data}
-                                handleDelete={this.handleDelete} /> : <span></span> }
-        {/* <RatingChart ratings={this.state.data.rating}/> */}
+        {showJournal ? <Journal data={this.state.data} handleDelete={this.handleDelete} /> : <span></span> }
+        {showRatings ? <RatingChart wines={this.state.data}/> : <span></span> }
         <Footer />
       </div>
     );

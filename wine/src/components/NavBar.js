@@ -19,7 +19,7 @@ function FlatButtons(props) {
       <Button className={classes.button} onClick={props.home}>Home</Button>
       <Button className={classes.button} onClick={props.form}>New Submission</Button>
       <Button className={classes.button} onClick={props.journal}>Journal</Button>
-      {/* <Button className={classes.button} }>Raitings </Button> */}
+      <Button className={classes.button} onClick={props.ratings}>Ratings </Button>
     </div>
   );
 }
