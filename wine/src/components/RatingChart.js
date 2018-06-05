@@ -11,7 +11,6 @@ export default class RatingChart extends Component {
       return wine.rating
     })
     
-    
     const data = {
       labels: names,
       datasets: [

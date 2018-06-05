@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import {Link} from 'react-router-dom';
 
 const styles = theme => ({
   button: {
@@ -16,10 +17,10 @@ function FlatButtons(props) {
   const { classes } = props;
   return (
     <div className="nav-bar" >
-      <Button className={classes.button} onClick={props.home}>Home</Button>
-      <Button className={classes.button} onClick={props.form}>New Submission</Button>
-      <Button className={classes.button} onClick={props.journal}>Journal</Button>
-      <Button className={classes.button} onClick={props.ratings}>Ratings </Button>
+      <Link to="/"><Button className={classes.button}>Home</Button></Link>
+      <Link to="/form"><Button className={classes.button}>New Submission</Button></Link>
+      <Link to="/journal"><Button className={classes.button}>Journal</Button></Link>
+      <Link to="/ratingChart"><Button className={classes.button}>Ratings</Button></Link>
     </div>
   );
 }

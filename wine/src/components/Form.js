@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Preview from './Preview';
+import React, { Component } from 'react'
+import Preview from './Preview'
 
 const url = 'https://wine-journal-api.herokuapp.com/wines/'
 
@@ -26,7 +26,7 @@ export default class Form extends Component {
   }
 
   handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     const body = JSON.stringify(this.state)
     fetch(url, {
       method: "POST",
@@ -35,8 +35,7 @@ export default class Form extends Component {
     })
     .then(response => response.json())
     .then(entry =>	{
-      console.log(entry);
-      
+      this.props.refreshData()
     })
     .then(this.setState({
       name: '',
@@ -125,6 +124,6 @@ export default class Form extends Component {
         </div>
         
       </div>
-    );
+    )
   }
 }

@@ -1,76 +1,25 @@
-import React, { Component } from 'react';
-import FoodPairings from './FoodPairings';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
-const pairingsURL = 'https://wine-journal-api.herokuapp.com/pairings'
+const url = 'https://wine-journal-api.herokuapp.com/wines/'
 
 export default class Journal extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showPairings: true,
-      pairingsData: [],
-      currentPairings: [],
-      recipeName: '',
-      link: '',
-      description: ''
-    }
-  }
-
-  componentDidMount() {
-    fetch(pairingsURL)
-    .then(response => response.json())
-    .then(response => {
-      this.setState({
-        pairingsData: response.pairings
-      })
-      
-    })
-  }
-
-  handleChange = (event) => {
-    const value = event.target.value
-    const key = event.target.name
-    this.setState({
-      [key]: value
-    })
-  }
-
-  handleSubmit = (event) => {
+  handleDelete = (event) => {
     event.preventDefault()
-    const body = JSON.stringify({
-      recipeName: this.state.recipeName,
-      link: this.state.link,
-      description: this.state.description
-    })
-    fetch(pairingsURL, {
-        method: "POST",
-        headers: new Headers ({"content-type": "application/json"}),
-        body: body
-      })
-      .then(response => response.json())
-      .then(entry =>	{
-        console.log(entry);
-        
-      })
-      .then(this.setState({
-        recipeName: '',
-        link: '',
-        description: ''
-      }))
-  }
+    let deleteUrl = url + event.target.name
 
-  pairings = (event) => {
-   let currentPairings = this.state.pairingsData.filter(pairing => {
-      return pairing.wines_id == event.target.name
-    })
-    this.setState({
-      showPairings: !this.state.showPairings,
-      currentPairings: currentPairings
+    fetch(deleteUrl, {
+      method: "DELETE",
+      headers: new Headers({ "content-type": "application/json" })
+    }).then(response => response.json()).then(entry => {
+      this.props.getData()
+      console.log("Delete", entry)
+    }).catch(err => {
+      console.log('Error', err)
     })
   }
 
   render () {
-    const showPairings = this.state.showPairings
     
     const journals = this.props.data.map(wine =>{
       return (
@@ -87,9 +36,9 @@ export default class Journal extends Component {
           <h3>Rating: <span>{wine.rating}</span></h3>
         </div>
         <div className="journal-buttons">
-          <button name={wine.id} onClick= {this.pairings} >Pairings</button>
+            <Link to={`/pairings/${wine.id}`} name={wine.id} onClick={this.pairings} ><button>Pairings</button></Link>
           <div>
-            <button  name={wine.id} onClick={this.props.handleDelete} type="delete" >Delete</button>
+            <button  name={wine.id} onClick={this.handleDelete}>Delete</button>
           </div>
         </div>
         </div>
@@ -99,14 +48,10 @@ export default class Journal extends Component {
   return (
     <div>
       <h1 className="journal-title" >Journals and Pairings</h1>
-      {showPairings ? 
-          <div id="journals" >{journals}</div> : 
-          <FoodPairings pairings={this.pairings}
-                        currentPairings={this.state.currentPairings}/> }
-      
+          <div id="journals" >{journals}</div>      
     </div> 
-  );
+  )
   }
-};
+}
 
 
