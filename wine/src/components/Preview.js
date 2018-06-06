@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Preview = (props) => {
   return (
@@ -13,7 +13,7 @@ const Preview = (props) => {
       <span>{props.notes}</span>
       <h3>Rating: <span>{props.rating}</span></h3>
     </div>
-  );
-};
+  )
+}
 
-export default Preview;
+export default Preview

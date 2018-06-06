@@ -78,32 +78,32 @@
 }
 
 #form-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 #form-preview {
-  word-wrap: break-word;
+    word-wrap: break-word;
 }
 
 span {
-  font-weight: 100;
-  font-size: 18px;
+    font-weight: 100;
+    font-size: 18px;
 }
 
 button {
     background: #ed2859;
-  font-family: Arial;
-  color: black;
-  font-size: 14px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-  margin-right: 10%;
+    font-family: Arial;
+    color: black;
+    font-size: 14px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    margin-right: 10%;
 }
 
 button:hover {
     background: #ff002b9f;
-  text-decoration: none;
+    text-decoration: none;
 }

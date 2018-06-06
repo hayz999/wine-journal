@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import { Bar } from 'react-chartjs-2';
+import React, { Component } from 'react'
+import { Bar } from 'react-chartjs-2'
 
 export default class RatingChart extends Component {
   render() {
     const names = this.props.wines.map(wine => {
       return wine.name
     })
-
     const ratings = this.props.wines.map(wine => {
       return wine.rating
     })
@@ -24,7 +23,8 @@ export default class RatingChart extends Component {
           data: ratings
         }
       ]
-    };
+    }
+    
     return (
       <div>
         <h1 className="journal-title" >Wine Ratings</h1>
@@ -43,9 +43,8 @@ export default class RatingChart extends Component {
                 }
               }]
             }
-          }}
-        />
+          }} />
       </div>
-    );
+    )
   }
 }

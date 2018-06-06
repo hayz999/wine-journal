@@ -57,7 +57,6 @@ export default class FoodPairings extends Component {
     })
       .then(response => response.json())
       .then(entry => {
-        console.log(entry)
         this.getPairings()
       })
       .then(this.setState({
@@ -71,25 +70,21 @@ export default class FoodPairings extends Component {
     const foodPairings = this.state.currentPairings.map(food => {
       return (
         <div key={food.id} className="form-style-6">
-          
           <h1>{food.nameOfFood}</h1>
           <h2><a target='_blank' href={food.recipeURL}>Recipe</a></h2>
           <p>{food.description}</p>
-          
         </div>
       )
     })
   
   return (
     <div className="pairing-page">
+      <h1 className="journal-title" >Suggested Pairings</h1>
     <div  >
       {foodPairings}
     </div>
-    
       <PairingForm handleChange={this.handleChange} 
                    handleSubmit={this.handleSubmit} />
-    
-    
     </div>
   )
   }

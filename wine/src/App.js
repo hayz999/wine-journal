@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import NavBar from './components/NavBar'
 import Form from './components/Form'
 import Journal from './components/Journal'
 import Header from './components/Header'
 import About from './components/About'
 import Footer from './components/Footer'
+import AppBar from './components/AppBar';
 import FoodPairings from './components/FoodPairings';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import './App.css'
@@ -33,7 +33,6 @@ class App extends Component {
       })
   }
 
-
   render() {
 
     return (
@@ -41,18 +40,16 @@ class App extends Component {
         
         <BrowserRouter>
         <div>
-          <NavBar />
+          <AppBar />
           <Header />
           <Switch>
             <Route exact path="/" component={About} />
-              <Route exact path="/form" component={() => <Form data={this.state.data} refreshData={this.getData}/>} />
+            <Route exact path="/form" component={() => <Form data={this.state.data} refreshData={this.getData}/>} />
             <Route exact path="/journal" component={() => <Journal data={this.state.data} getData={this.getData}  />} />
             <Route exact path="/ratingChart" component={() => <RatingChart wines={this.state.data} />} />
-              <Route exact path="/pairings/:wineId" component={FoodPairings} />
+            <Route exact path="/pairings/:wineId" component={FoodPairings} />
           </Switch>
         </div>
-          
-         
         </BrowserRouter>
         <Footer />
       </div>

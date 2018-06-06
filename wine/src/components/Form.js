@@ -45,8 +45,7 @@ export default class Form extends Component {
       location: '',
       notes: '',
       rating: ''
-    })
-    )
+    }))
   }
 
   render() {
@@ -54,64 +53,64 @@ export default class Form extends Component {
       <div>
         <h1 className="journal-title" >Add a new wine!</h1>
         <div id="form-container" >
-        <div className="form-style-6">
-        <h1>New Journal Submission</h1>
-            <form>
-          <section className="form" >
-            <section >
-              <input name="name" 
-                    type="text" 
-                    value={this.state.name} 
-                    placeholder="Name" 
-                    onChange={this.handleChange} />
+          <div className="form-style-6">
+          <h1>New Journal Submission</h1>
+          <form>
+            <section className="form" >
+              <section >
+                <input name="name" 
+                       type="text" 
+                       value={this.state.name} 
+                       placeholder="Name" 
+                       onChange={this.handleChange} />
+              </section>
+              <section >
+                <input name="vintage" 
+                       type="text" 
+                       value={this.state.vintage} 
+                       placeholder="Vintage" 
+                       onChange={this.handleChange} />
+              </section>
+              <section >
+                <input name="varietal" 
+                       type="text" 
+                       value={this.state.varietal} 
+                       placeholder="Varietal" 
+                       onChange={this.handleChange} />
+              </section>
+              <section >
+                <input name="winery" 
+                       type="text" 
+                       value={this.state.winery} 
+                       placeholder="Winery" 
+                       onChange={this.handleChange} />
+              </section>
+              <section >
+                <input name="location" 
+                       type="text" 
+                       value={this.state.location} 
+                       placeholder="Location" 
+                       onChange={this.handleChange} />
+              </section>
+              <section >
+                <textarea name="notes" 
+                          type="text" 
+                          value={this.state.notes} 
+                          placeholder="Tasting Notes" 
+                          onChange={this.handleChange} />
+              <section >
+                <input name="rating" 
+                       type="text" 
+                       value={this.state.rating} 
+                       placeholder="Rating" 
+                       onChange={this.handleChange} />
+              </section>
+              </section>
             </section>
-            <section >
-              <input name="vintage" 
-                    type="text" 
-                    value={this.state.vintage} 
-                    placeholder="Vintage" 
-                    onChange={this.handleChange} />
-            </section>
-            <section >
-              <input name="varietal" 
-                    type="text" 
-                    value={this.state.varietal} 
-                    placeholder="Varietal" 
-                    onChange={this.handleChange} />
-            </section>
-            <section >
-              <input name="winery" 
-                    type="text" 
-                    value={this.state.winery} 
-                    placeholder="Winery" 
-                    onChange={this.handleChange} />
-            </section>
-            <section >
-              <input name="location" 
-                    type="text" 
-                    value={this.state.location} 
-                    placeholder="Location" 
-                    onChange={this.handleChange} />
-            </section>
-            <section >
-              <textarea name="notes" 
-                        type="text" 
-                        value={this.state.notes} 
-                        placeholder="Tasting Notes" 
-                        onChange={this.handleChange} />
-            <section >
-              <input name="rating" 
-                    type="text" 
-                    value={this.state.rating} 
-                    placeholder="Rating" 
-                    onChange={this.handleChange} />
-            </section>
-            </section>
-          </section>
               <button onClick={this.handleSubmit} 
                       type="submit" > Submit </button> 
-        </form>
-        </div>
+          </form>
+          </div>
           <Preview name={this.state.name}
                    vintage={this.state.vintage}
                    varietal={this.state.varietal}
@@ -120,9 +119,6 @@ export default class Form extends Component {
                    notes={this.state.notes}
                    rating={this.state.rating} />
         </div>
-        <div className="journal-button">
-        </div>
-        
       </div>
     )
   }
