@@ -18,8 +18,9 @@ describe('Wine-About-It', () => {
   })
   it('loads journals', () => {
     cy.get('a').eq(2).click()
-    cy.get('div #form-preview').eq(4)
-    cy.get('button').eq(13).contains('Delete').click()
-    cy.get('button').eq(4).contains('Pairings').click()
   })
+  it('loads chart', () => {
+    cy.get('a').eq(3).click()
+    cy.get('canvas').should('exist')
+  });
 })
