@@ -1,6 +1,6 @@
 # Wine-About-It
 
-See the app [here]('https://wine-about-it.firebaseapp.com/')
+See the app [here](https://wine-about-it.firebaseapp.com/)
 
 ## About
 
@@ -13,7 +13,7 @@ Obviously my time in the hospitality world came to an end as I fell in love with
 
 ### Backend
 
-The backend was built using Node.js with Express and Knex.  I joined two tables and created a RESTful API.  The GitHub repo for the server can be found [here]('https://github.com/hayz999/wine-server').  Server was deployed to Heroku
+The backend was built using Node.js with Express and Knex.  I joined two tables and created a RESTful API.  The GitHub repo for the server can be found [here](https://github.com/hayz999/wine-server).  Server was deployed to Heroku
 
 ### Frontend
 
