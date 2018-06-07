@@ -73,6 +73,7 @@ footer {
   flex-direction: row !important;
   justify-content: flex-end !important;
   background-color: #F7F7F7 !important;
+  width: 100% !important;
 }
 
 .journal-buttons {

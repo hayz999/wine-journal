@@ -19,8 +19,7 @@ const styles = {
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
-  },
-  background: 'white'
+  }
 }
 
 function ButtonAppBar(props) {
