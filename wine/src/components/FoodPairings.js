@@ -18,7 +18,7 @@ export default class FoodPairings extends Component {
   }
 
   componentDidMount() {
-   this.getPairings()
+    this.getPairings()
   }
 
   getPairings = () => {

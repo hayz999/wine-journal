@@ -4,6 +4,15 @@ import { Link } from 'react-router-dom'
 const url = 'https://wine-journal-api.herokuapp.com/wines/'
 
 export default class Journal extends Component {
+
+  handleChange = (event) => {
+    const value = event.target.value
+    const key = event.target.name
+    this.setState({
+      [key]: value
+    })
+  }
+
   handleDelete = (event) => {
     event.preventDefault()
     let deleteUrl = url + event.target.name
@@ -38,8 +47,9 @@ export default class Journal extends Component {
           </div>
           <div className="journal-buttons">
             <Link to={`/pairings/${wine.id}`} name={wine.id} onClick={this.pairings} ><button>Pairings</button></Link>
+            <Link to={`/journal/${wine.id}`} name={wine.id}><button onClick={(event) => this.props.getCurrentWine(event, wine)}>Edit</button></Link>
             <div>
-              <button  name={wine.id} onClick={this.handleDelete}>Delete</button>
+            <button  name={wine.id} onClick={this.handleDelete}>Delete</button>
             </div>
           </div>
         </div>
