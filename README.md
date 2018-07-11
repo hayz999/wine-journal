@@ -1,6 +1,12 @@
 # Wine-About-It
+![image](screenshot.png)
 
 See the app [here](https://wine-about-it.firebaseapp.com/)
+
+## Author
+
+### [Hayley Zulkoski](https://github.com/hayz999)
+##### https://www.linkedin.com/in/hayley-zulkoski-webdev/
 
 ## About
 
@@ -9,16 +15,30 @@ This was my first solo full stack application while learning to code at Galvaniz
 
 Obviously my time in the hospitality world came to an end as I fell in love with coding, but my love for wine and that industry has not ended.  Naturally making an application to track and rate wines you have tried and add recommended food pairings for that wine, seemed like a pretty good idea.
 
-## Technology used
+## Installation
 
-### Backend
+Run `npm install` to install dependencies.
+
+## Serving
+
+Run `npm start` to serve locally.
+
+## Technology used
+- React
+- React Material UI
+- React Router
+- Node.js
+- Express
+- Knex
+
+## Backend
 
 The backend was built using Node.js with Express and Knex.  I joined two tables and created a RESTful API.  The GitHub repo for the server can be found [here](https://github.com/hayz999/wine-server).  Server was deployed to Heroku
 
-### Frontend
+## Frontend
 
 The frontend was created using React.js, React Material UI for some style elements as well as plain CSS, and Chart.js for the bar graph. The site was then deployed to Firebase for free hosting.
 
-### E2E testing
+## E2E testing
 
 Testing for functionality was done with Cypress.
