@@ -43,6 +43,6 @@ The frontend was created using React.js, React Material UI for some style elemen
 
 Testing for functionality was done with Cypress.
  
- ###© HZulkoski, LLC. 2018
+© HZulkoski, LLC. 2018
 
 
