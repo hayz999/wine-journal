@@ -42,3 +42,7 @@ The frontend was created using React.js, React Material UI for some style elemen
 ## E2E testing
 
 Testing for functionality was done with Cypress.
+ 
+© HZulkoski, LLC. 2018
+
+
